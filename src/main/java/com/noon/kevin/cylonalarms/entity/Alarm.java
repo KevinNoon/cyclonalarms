@@ -12,6 +12,7 @@ public class Alarm implements Comparable{
     private LocalDateTime endTime;
     private Integer alarmType;
     private String pointName;
+    private Integer pointType;
     private Double pointValue;
     private String pointUnit;
     private String alarmMessage;
@@ -104,6 +105,14 @@ public class Alarm implements Comparable{
 
     public Double getPointValue() {
         return pointValue;
+    }
+
+    public Integer getPointType() {
+        return pointType;
+    }
+
+    public void setPointType(Integer pointType) {
+        this.pointType = pointType;
     }
 
     public void setPointValue(Double pointValue) {

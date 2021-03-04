@@ -46,19 +46,50 @@ public class SQLDatabaseConnection {
                 Alarm alarm = new Alarm();
                 alarm.setAlarmID(resultSet.getLong("AlarmID"));
                 alarm.setSiteName(resultSet.getString("SiteName"));
+
                 alarm.setNetCtrlName(resultSet.getString("Ucc4Name"));
-                alarm.setSubNetName(resultSet.getString("UC16Name"));
+
+                String UC16Name = resultSet.getString("UC16Name");
+                if (UC16Name == null) UC16Name ="";
+                alarm.setSubNetName(UC16Name);
+
                 alarm.setPriority(resultSet.getInt("Priority"));
+
                 alarm.setStartTime(strToDate(resultSet.getString("StartedAt")));
+
                 alarm.setEndTime(strToDate(resultSet.getString("EndedAt")));
+
                 alarm.setAlarmType(resultSet.getInt("AlarmType"));
-                alarm.setPointName(resultSet.getString("TriggerPointName"));
-                alarm.setPointValue(resultSet.getDouble("TriggerPointValue"));
-                alarm.setPointUnit(resultSet.getString("TriggerPointUnit"));
-                alarm.setAlarmMessage(resultSet.getString("AlarmMessage"));
-                alarm.setAcknowledgedBy(resultSet.getString("AcknowledgedBy"));
+
+                String TriggerPointName = resultSet.getString("TriggerPointName");
+                if (TriggerPointName == null) TriggerPointName ="";
+                alarm.setPointName(TriggerPointName);
+
+                Integer TriggerPointType = resultSet.getInt("TriggerPointType");
+                if (TriggerPointType == null) TriggerPointType = 0;
+                alarm.setPointType(TriggerPointType);
+
+                Double TriggerPointValue = resultSet.getDouble("TriggerPointValue");
+                if (TriggerPointValue == null) TriggerPointValue = 0.0;
+                alarm.setPointValue(TriggerPointValue);
+
+                String TriggerPointUnit = resultSet.getString("TriggerPointUnit");
+                if (TriggerPointUnit == null) TriggerPointUnit ="";
+                alarm.setPointUnit(TriggerPointUnit);
+
+                String AlarmMessage = resultSet.getString("AlarmMessage");
+                if (AlarmMessage == null) AlarmMessage ="";
+                alarm.setAlarmMessage(AlarmMessage);
+
+                String AcknowledgedBy = resultSet.getString("AcknowledgedBy");
+                if (AcknowledgedBy == null) AcknowledgedBy ="";
+                alarm.setAcknowledgedBy(AcknowledgedBy);
+
                 alarm.setAcknowledgedAt(strToDate(resultSet.getString("AcknowledgedAt")));
-                alarm.setAlarmCount(resultSet.getInt("ExtraInteger"));
+
+                Integer ExtraInteger = resultSet.getInt("ExtraInteger");
+                if (ExtraInteger == null) ExtraInteger = 0;
+                alarm.setAlarmCount(ExtraInteger);
                 alarms.add(alarm);
             }
             return alarms;

@@ -8,6 +8,7 @@ import java.util.List;
 
 import static com.noon.kevin.cylonalarms.configuration.DBProperties.getAlarmIndex;
 import static com.noon.kevin.cylonalarms.configuration.DBProperties.setAlarmIndex;
+import static com.noon.kevin.cylonalarms.controller.EmailController.formatText;
 import static com.noon.kevin.cylonalarms.data.SQLDatabaseConnection.getAlarms;
 
 public class MainController {
@@ -16,6 +17,9 @@ public class MainController {
         System.out.println(lastIndex);
         List<Alarm> alarms = getAlarms(lastIndex + 1);
         Collections.sort(alarms);
+        for (Alarm alarm:alarms) {
+            System.out.println(formatText(alarm));
+        }
         if (alarms.size() > 0){
         System.out.println(alarms.get(alarms.size()-1));
             if (lastIndex != alarms.get(alarms.size()-1).getAlarmID()){
