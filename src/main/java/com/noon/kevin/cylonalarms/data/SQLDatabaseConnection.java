@@ -36,7 +36,6 @@ public class SQLDatabaseConnection {
                         + "trustServerCertificate=false;"
                         + "loginTimeout=30;";
 
-
         ResultSet resultSet = null;
         List<Alarm> alarms = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(connectionUrl);Statement
