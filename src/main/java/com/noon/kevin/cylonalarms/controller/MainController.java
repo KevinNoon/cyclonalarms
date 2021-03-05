@@ -1,6 +1,7 @@
 package com.noon.kevin.cylonalarms.controller;
 
 import com.noon.kevin.cylonalarms.data.SQLDatabaseConnection;
+import com.noon.kevin.cylonalarms.email.SendMail;
 import com.noon.kevin.cylonalarms.entity.Alarm;
 
 import java.util.Collections;
@@ -22,6 +23,8 @@ public class MainController {
         }
         if (alarms.size() > 0){
         System.out.println(alarms.get(alarms.size()-1));
+        // Need loop
+            SendMail.sendMail(EmailController.formatText(alarms.get(alarms.size()-1)));
             if (lastIndex != alarms.get(alarms.size()-1).getAlarmID()){
                 lastIndex = alarms.get(alarms.size()-1).getAlarmID();
                 setAlarmIndex("alarm.lastIndex",""+lastIndex);

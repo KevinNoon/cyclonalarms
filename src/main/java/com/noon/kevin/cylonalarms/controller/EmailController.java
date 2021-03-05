@@ -12,7 +12,7 @@ public class EmailController {
         }
         String message = "Message : " + alarm.getAlarmMessage();
         String times = "Start time : " + alarm.getStartTime() + "\tEnd time : " + alarm.getEndTime();
-        String acknowledged = "Acknowledge by : " + alarm.getAcknowledgedBy() + "\t at :" + alarm.getAcknowledgedAt();
+        String acknowledged = "Acknowledge by : " + alarm.getAcknowledgedBy() + "\t at : " + alarm.getAcknowledgedAt();
 
         String alarmBody = sitePriority + "\n" + ucc4ucc16 + "\n" + point + "\n" + message + "\n" + times + "\n" + acknowledged;
         return alarmBody;
