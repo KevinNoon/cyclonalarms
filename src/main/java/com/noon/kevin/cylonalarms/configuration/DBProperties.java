@@ -1,8 +1,6 @@
 package com.noon.kevin.cylonalarms.configuration;
 
 
-import com.noon.kevin.cylonalarms.CylonalarmsApplication;
-
 import java.io.*;
 import java.util.Properties;
 

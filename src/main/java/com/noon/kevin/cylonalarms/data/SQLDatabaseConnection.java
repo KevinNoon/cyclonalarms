@@ -45,7 +45,10 @@ public class SQLDatabaseConnection {
             while (resultSet.next()){
                 Alarm alarm = new Alarm();
                 alarm.setAlarmID(resultSet.getLong("AlarmID"));
+
                 alarm.setSiteName(resultSet.getString("SiteName"));
+
+                alarm.setSiteNumber(resultSet.getInt("SiteNumber"));
 
                 alarm.setNetCtrlName(resultSet.getString("Ucc4Name"));
 

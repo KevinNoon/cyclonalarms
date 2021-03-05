@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class Alarm implements Comparable{
     private Long alarmID;
     private String siteName;
+    private Integer siteNumber;
     private String netCtrlName;
     private String subNetName;
     private Integer priority;
@@ -45,6 +46,14 @@ public class Alarm implements Comparable{
 
     public void setSiteName(String siteName) {
         this.siteName = siteName;
+    }
+
+    public Integer getSiteNumber() {
+        return siteNumber;
+    }
+
+    public void setSiteNumber(Integer siteNumber) {
+        this.siteNumber = siteNumber;
     }
 
     public String getNetCtrlName() {
